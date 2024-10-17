@@ -8,11 +8,12 @@ async function main() {
   // Get the contract factory to deploy the contract
   const FlightRefund = await hre.ethers.getContractFactory("FlightRefund");
 
+    const ownerAddress = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 "; // Replace with the desired owner address
   // Deploy the contract
   const flightRefund = await FlightRefund.deploy();
 
   // Wait until the transaction is mined
-  await flightRefund.deployed();
+  await flightRefund.deployed(ownerAddress);
 
   console.log("FlightRefund contract deployed to:", flightRefund.address);
 }

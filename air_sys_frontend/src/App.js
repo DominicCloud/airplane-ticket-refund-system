@@ -4,7 +4,7 @@ import { encodeBytes32String, parseEther } from 'ethers'; // Import necessary ut
 import FlightRefundABI from './abis/FlightRefundABI.json'; // Adjust the path as necessary
 
 // Contract address (replace with your deployed contract address)
-const contractAddress = "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199";
+const contractAddress = "0x73511669fd4dE447feD18BB79bAFeAC93aB7F31f";
 
 const App = () => {
   const [flightNumber, setFlightNumber] = useState("");
@@ -51,7 +51,8 @@ const App = () => {
     if (contract) {
       try {
         const flightBytes = encodeBytes32String(flightNumber);
-        const tx = await contract.addFlight(flightBytes, parseEther(ticketPrice.toString()));
+          console.log(ticketPrice)
+        const tx = await contract.addFlight(flightBytes, ticketPrice);
         await tx.wait();
         alert("Flight added successfully!");
       } catch (error) {
@@ -67,7 +68,9 @@ const App = () => {
     if (contract) {
       try {
         const flightBytes = encodeBytes32String(flightNumber);
-        const totalCost = parseEther(price.toString()).mul(numberOfTickets);
+          console.log(price)
+        const totalCost = parseEther(price.toString());
+          console.log(totalCost)
         const tx = await contract.purchaseTickets(flightBytes, numberOfTickets, { value: totalCost });
         await tx.wait();
         alert("Tickets purchased successfully!");
