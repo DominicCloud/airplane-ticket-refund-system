@@ -1,0 +1,293 @@
+[
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "flightNumber",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "ticketPriceInEth",
+          "type": "uint256"
+        }
+      ],
+      "name": "FlightAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "flightNumber",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newTicketPriceInEth",
+          "type": "uint256"
+        }
+      ],
+      "name": "FlightUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "flightNumber",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "passenger",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amountInEth",
+          "type": "uint256"
+        }
+      ],
+      "name": "RefundIssued",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "flightNumber",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "passenger",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "numberOfTickets",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "totalPriceInEth",
+          "type": "uint256"
+        }
+      ],
+      "name": "TicketsPurchased",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "MINIMUM_DELAY",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "flightNumber",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "ticketPriceInEth",
+          "type": "uint256"
+        }
+      ],
+      "name": "addFlight",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "flights",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "ticketPrice",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "isActive",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "flightNumber",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "passenger",
+          "type": "address"
+        }
+      ],
+      "name": "getTicketCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "flightNumber",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "delayInMinutes",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "refundPercentage",
+          "type": "uint256"
+        }
+      ],
+      "name": "processRefund",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "flightNumber",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "numberOfTickets",
+          "type": "uint256"
+        }
+      ],
+      "name": "purchaseTickets",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "tickets",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "passenger",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "refunded",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "flightNumber",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "newTicketPriceInEth",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateFlightPrice",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdrawFunds",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+]

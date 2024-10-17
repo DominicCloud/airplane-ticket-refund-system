@@ -1,0 +1,84 @@
+/* src/index.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff; /* Light background color */
+  color: #333; /* Dark text color */
+  line-height: 1.6;
+}
+
+.App {
+  max-width: 800px; /* Max width for the app */
+  margin: 20px auto; /* Center the app */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  background-color: white; /* White background for the content */
+}
+
+h1 {
+  text-align: center; /* Center title */
+  color: #0056b3; /* Dark blue color */
+  font-size: 2.5rem; /* Title font size */
+  margin-bottom: 20px; /* Space below the title */
+}
+
+h2 {
+  margin-top: 30px; /* Space above section titles */
+  color: #333; /* Dark color for headings */
+  border-bottom: 2px solid #0056b3; /* Underline for section titles */
+  padding-bottom: 10px; /* Space below section titles */
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 90%; /* Full width inputs */
+  padding: 10px; /* Padding inside inputs */
+  margin: 10px 0; /* Space above and below inputs */
+  border: 2px solid #0056b3; /* Blue border */
+  border-radius: 4px; /* Slightly rounded corners */
+  transition: border-color 0.3s; /* Transition for border color */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #ff9800; /* Change border color on focus */
+  outline: none; /* Remove outline */
+}
+
+button {
+  background-color: #0056b3; /* Button background color */
+  color: white; /* Button text color */
+  padding: 10px 15px; /* Padding inside button */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: 10px; /* Space above button */
+  transition: background-color 0.3s; /* Transition for background color */
+}
+
+button:hover {
+  background-color: #004494; /* Darker blue on hover */
+}
+
+button:disabled {
+  background-color: #ccc; /* Grey background for disabled button */
+  cursor: not-allowed; /* Not allowed cursor */
+}
+
+@media (max-width: 600px) {
+  .App {
+      margin: 10px; /* Reduce margin on smaller screens */
+      padding: 15px; /* Reduce padding on smaller screens */
+  }
+
+  h1 {
+      font-size: 2rem; /* Reduce title font size on smaller screens */
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
