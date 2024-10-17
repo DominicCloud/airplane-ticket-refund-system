@@ -1,5 +1,5 @@
-// SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.27;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
 
 contract FlightRefund {
     address public owner;
@@ -90,14 +90,23 @@ contract FlightRefund {
         emit TicketsPurchased(flightNumber, msg.sender, numberOfTickets, totalCost / 1 ether);
     }
 
-    function processRefund(bytes32 flightNumber, uint256 delayInMinutes, uint256 refundPercentage)
+    function processRefund(bytes32 flightNumber, uint256 delayInMinutes)
         external
         flightExists(flightNumber)
         nonReentrant
     {
         require(delayInMinutes >= MINIMUM_DELAY / 1 minutes, "Delay must be at least 30 minutes");
-        require(refundPercentage > 0 && refundPercentage <= 100, "Invalid refund percentage");
+        uint256 refundPercentage = 1;
 
+        if (delayInMinutes < 60){
+            refundPercentage = 50;
+        }
+        else if (delayInMinutes < 100){
+            refundPercentage = 75;
+        }
+        else {
+            refundPercentage = 95;
+        }
         uint256 totalRefund = 0;
 
         for (uint256 i = 0; i < tickets[flightNumber].length; i++) {

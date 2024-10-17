@@ -87,7 +87,7 @@ const App = () => {
     if (contract) {
       try {
         const flightBytes = encodeBytes32String(flightNumber);
-        const tx = await contract.processRefund(flightBytes, delayInMinutes, refundPercentage);
+        const tx = await contract.processRefund(flightBytes, delayInMinutes);
         await tx.wait();
         alert("Refund processed successfully!");
       } catch (error) {
