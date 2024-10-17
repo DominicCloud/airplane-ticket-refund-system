@@ -4,7 +4,7 @@ import { encodeBytes32String, parseEther } from 'ethers'; // Import necessary ut
 import FlightRefundABI from './abis/FlightRefundABI.json'; // Adjust the path as necessary
 
 // Contract address (replace with your deployed contract address)
-const contractAddress = "0x73511669fd4dE447feD18BB79bAFeAC93aB7F31f";
+const contractAddress = "0x37dD26d18abeC2d311e82177f9fa58E9DC14b579";
 
 const App = () => {
   const [flightNumber, setFlightNumber] = useState("");
@@ -68,8 +68,8 @@ const App = () => {
     if (contract) {
       try {
         const flightBytes = encodeBytes32String(flightNumber);
-          console.log(price)
-        const totalCost = parseEther(price.toString());
+          console.log(price * numberOfTickets)
+        const totalCost = parseEther((price*numberOfTickets).toString());
           console.log(totalCost)
         const tx = await contract.purchaseTickets(flightBytes, numberOfTickets, { value: totalCost });
         await tx.wait();
@@ -153,12 +153,6 @@ const App = () => {
         placeholder="Delay (Minutes)"
         value={delayInMinutes}
         onChange={(e) => setDelayInMinutes(e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Refund Percentage"
-        value={refundPercentage}
-        onChange={(e) => setRefundPercentage(e.target.value)}
       />
       <button onClick={handleRefund}>Process Refund</button>
     </div>

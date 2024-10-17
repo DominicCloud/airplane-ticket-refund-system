@@ -201,11 +201,6 @@
           "internalType": "uint256",
           "name": "delayInMinutes",
           "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "refundPercentage",
-          "type": "uint256"
         }
       ],
       "name": "processRefund",
